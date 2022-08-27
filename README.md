@@ -12,3 +12,11 @@ wbs_penaltyfinder computes an empirical value of the threshold/penalty needed to
 For instance, if you were interested in detecting changes in mean under standard Gaussian noise in a 100-variate setting, you could run something like the following:
 
 source('main.R')
+
+mydata <- matrix(c(rnorm(2500,0,1),rnorm(2500,1,1)),nrow=5,ncol=1000,byrow=FALSE) # 5 variates with 1000 time points, change in all at time 500
+
+mynulldata <- matrix(rnorm(5000,0,1),nrow=5,ncol=1000,byrow=FALSE) # 5 variates with 1000 time points, no change
+
+empirical_penalty <- wbs_penaltyfinder(mynulldata, SUBSET.normal_penalty, 500) # finds an empirical penalty for the SUBSET method (with a normal likelihood cost function)
+
+result <- change_main(mydata, SUBSET.normal, 500, empirical_penalty) # running the change detection wrapper with the SUBSET method, using the empirical penalty calculated above; result is an S3 list object with 3 elements. The first element gives the value of the test statistic (the difference in the cost) at the detected changepoints, the second element gives the location of the detected changepoints, and the final element is a matrix of binaries indicating which variates are affected by the change.
