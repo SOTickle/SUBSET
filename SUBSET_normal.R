@@ -3,7 +3,7 @@ source('madcorrection.R')
 ####function for minimising a cost
 ## of sum_{over series} RSS + penalty
 ## for the AMOC case
-## were penalty is alpha+s beta;
+## where penalty is alpha+s beta;
 ## alpha,beta>0 are chosen constants and s is the number of series that change.
 
 ##to do this we first calculate the cost with penalty beta for each series and each changepoint location.
