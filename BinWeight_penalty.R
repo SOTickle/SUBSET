@@ -11,7 +11,7 @@ BinWeight_penalty = function(Y,alpha=sqrt(2*log(dim(Y)[2]))){#Bin-Weight method 
   C=matrix(0,nrow=p,ncol=n-1)
   nums <- seq(0.1,(n-1)/10,by=0.1)
   for(i in 1:p){
-    C[i,]=abs(sqrt(n/(nums*rev(nums)))*((1:(n-1))/n * S[i,n] - S[i,1:(n-1)]))/10##needs checking
+    C[i,]=abs(sqrt(n/(nums*rev(nums)))*((1:(n-1))/n * S[i,n] - S[i,1:(n-1)]))/10
   }
   
   I=matrix(0,nrow=p,ncol=n-1) #updated matrix
