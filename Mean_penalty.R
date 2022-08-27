@@ -4,7 +4,7 @@
 
 #Function finds best location of single change (or else rejects possibility of a change) using the mean of the CUSUM statistics across all variates. This is done by computing the CUSUM statistic in the case that the change occurs in a variate at each point in time.
 
-Mean_penalty = function(Y,beta=sqrt(2*(mad(Y[1,])^2)*log(dim(Y)[2])+2*(mad(Y[1,])^2)*log(dim(Y)[1])),alpha=sqrt(2*(mad(Y[1,])^2)*log(dim(Y)[2]))){#default penalty definitely too high - otherwise code is correct. See CUSUM.R for an explanation of the inputs.
+Mean_penalty = function(Y,beta=sqrt(2*(mad(Y[1,])^2)*log(dim(Y)[2])+2*(mad(Y[1,])^2)*log(dim(Y)[1])),alpha=sqrt(2*(mad(Y[1,])^2)*log(dim(Y)[2]))){
   n=dim(Y)[2]
   p=dim(Y)[1]
   
